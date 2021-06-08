@@ -19,10 +19,12 @@ public class LinkedList<E>{
 		}	
 	}
 	public LinkedList(){
+		//creat a empty LinkedList
 		head = new Node();
 	}
 
 	public LinkedList(E[] arr){
+		// construct the LinkedList with array
 		head = new Node();
 		for (E data: arr){
 			add(data);
@@ -30,6 +32,7 @@ public class LinkedList<E>{
 	}
 
 	public void print(){
+		//print out the elements
 		Node temp = head.next;
 		System.out.print("[");
 		do{
@@ -43,17 +46,19 @@ public class LinkedList<E>{
 	}
 
 	public int len(){
+		//return the length of the linkedList
 		return this.len;
 	}
 
 	public void add(E data){
+		//add a new element at the end of the LinkedList
 		Node node = new Node(data,getLastNode(),null);
 		getLastNode().next = node;
 		this.len++;
 	}
 
 	public E delete(E data){
-
+		//delete a node if it exist
 		if(getByElement(data) == -1){
 			System.out.println("Data does not exist!");
 		}else{
@@ -76,6 +81,7 @@ public class LinkedList<E>{
 	}
 
 	public void insert(E data,int index){
+		//insert a new Node
 		Node temp = head;
 		for (int i = 0;i<=index;i++){
 			temp = temp.next;
@@ -93,6 +99,7 @@ public class LinkedList<E>{
 	}
 
 	public E getByIndex(int index){
+		//get the data by index
 		Node temp = head;
 		for (int i=0;i<=index;i++){
 			temp = temp.next;
@@ -101,6 +108,7 @@ public class LinkedList<E>{
 	}
 
 	public int getByElement(E element){
+		//get the index of an element
 		Node temp = head;
 		int a = 0;
 		while(temp.next != null){
